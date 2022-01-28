@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "337508553712",
+    "project_id": "calender-suninghou",
+    "storage_bucket": "calender-suninghou.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337508553712:android:45d388d1c88947f23c4335",
+        "android_client_info": {
+          "package_name": "com.example.calender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "337508553712-39i2k9qst5bcd1anm7en8nk8fi8kt326.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy5zqxU2wwZGPfd4IRzVY3OEqh5_UY8Hs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "337508553712-39i2k9qst5bcd1anm7en8nk8fi8kt326.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

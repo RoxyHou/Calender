@@ -15,6 +15,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,11 +28,15 @@ public class WeekViewActivity extends AppCompatActivity implements CalenderAdapt
     private TextView monthYearText;
     private RecyclerView calenderRecyclerView;
     private ListView eventListView;
+    private FirebaseFirestore firebaseFirestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_view);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+
         initWidgets();
         setWeekView();
     }

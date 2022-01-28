@@ -3,6 +3,7 @@ package com.example.calender;
 import static com.example.calender.CalenderUtils.daysInMonthArray;
 import static com.example.calender.CalenderUtils.monthYearFromDate;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,22 +14,34 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements CalenderAdapter.OnItemListener {
 
     private TextView monthYearText;
     private RecyclerView calenderRecyclerView;
 
+    private FirebaseFirestore db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        db = FirebaseFirestore.getInstance();
         initWidgets();
         CalenderUtils.selectedDate = LocalDate.now();
         setMonthView();
@@ -66,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements CalenderAdapter.O
         if (date != null) {
             CalenderUtils.selectedDate = date;
             setMonthView();
+
+
         }
 
     }
