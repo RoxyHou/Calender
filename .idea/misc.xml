@@ -3,11 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidStudioProjects/Calender/app/src/main/res/layout/activity_event_edit.xml" value="0.152" />
+        <entry key="..\:/AndroidStudioProjects/Calender/app/src/main/res/layout/activity_event_edit.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/Calender/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/Calender/app/src/main/res/layout/activity_week_view.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/Calender/app/src/main/res/layout/calender_cell.xml" value="0.13360507246376813" />
-        <entry key="..\:/AndroidStudioProjects/Calender/app/src/main/res/layout/event_cell.xml" value="0.144" />
+        <entry key="..\:/AndroidStudioProjects/Calender/app/src/main/res/layout/event_cell.xml" value="0.2" />
       </map>
     </option>
   </component>

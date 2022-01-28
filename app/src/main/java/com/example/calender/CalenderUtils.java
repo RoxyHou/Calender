@@ -62,7 +62,17 @@ public class CalenderUtils {
     }
 
     public static String formattedTime(LocalTime time) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+        return time.format(formatter);
+    }
+
+    public static String formattedHour(LocalTime time) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh");
+        return time.format(formatter);
+    }
+
+    public static String formattedMin(LocalTime time) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("mm");
         return time.format(formatter);
     }
 

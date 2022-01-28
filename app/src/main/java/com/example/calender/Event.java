@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class Event {
+public class Event implements Comparable<Event> {
 
     public static ArrayList<Event> eventsList = new ArrayList<>();
 
@@ -53,5 +53,8 @@ public class Event {
     }
 
 
-
+    @Override
+    public int compareTo(Event o) {
+        return this.time.compareTo(o.time);
+    }
 }

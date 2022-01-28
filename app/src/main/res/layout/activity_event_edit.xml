@@ -5,8 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:orientation="vertical"
     tools:context=".EventEditActivity">
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,9 +36,9 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="Date: "
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
 
     <TextView
         android:id="@+id/eventTimeTV"
@@ -45,9 +47,51 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="Time: "
-        android:textSize="20sp"
         android:textAlignment="center"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="238dp"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/eventTimeETH"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:text=" : "
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/eventTimeETM"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:ems="10"
+            android:textAlignment="center"
+            android:inputType="text"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
     <Button
         android:layout_marginTop="20dp"
@@ -60,4 +104,5 @@
         android:onClick="saveEventAction"
         android:layout_gravity="center"
         android:textSize="20sp"/>
+
 </LinearLayout>
