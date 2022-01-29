@@ -60,8 +60,9 @@ public class EventEditActivity extends AppCompatActivity {
         String eventName = eventNameET.getText().toString();
         int hour = Integer.valueOf(eventTimeETH.getText().toString());
         int minute = Integer.valueOf(eventTimeETM.getText().toString());
-        Event newEvent = new Event(eventName, CalenderUtils.selectedDate, LocalTime.of(hour, minute));
-        Event.eventsList.add(newEvent);
+        
+        Event newEvent = new Event(eventName, CalenderUtils.selectedDate, LocalTime.of(hour, minute), null);
+        
 
         //store to db
         Map<String, Object> event = new HashMap<>();
@@ -75,6 +76,9 @@ public class EventEditActivity extends AppCompatActivity {
                 // after the data addition is successful
                 // we are displaying a success toast message.
                 //Toast.makeText(EventEditActivity.this, "Your Course has been added to Firebase Firestore", Toast.LENGTH_SHORT).show();
+
+                newEvent.setId(documentReference.getId());
+                vent.eventsList.add(newEvent);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

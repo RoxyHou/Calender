@@ -14,13 +14,18 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Year;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
@@ -44,7 +49,30 @@ public class MainActivity extends AppCompatActivity implements CalenderAdapter.O
         db = FirebaseFirestore.getInstance();
         initWidgets();
         CalenderUtils.selectedDate = LocalDate.now();
+        loadEvents();
         setMonthView();
+    }
+
+    private void loadEvents() {
+        db = FirebaseFirestore.getInstance();
+        db.collection("Calender")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Map<String, Object> curr = document.getData();
+                                String[] time = curr.get("time").toString().split(":");
+
+                                Event.eventsList.add(new Event(curr.get("name").toString(),
+                                        LocalDate.parse(curr.get("date").toString()),
+                                        LocalTime.of(Integer.valueOf(time[0]), Integer.valueOf(time[1])),
+                                        document.getId()));
+                            }
+                        }
+                    }
+                });
     }
 
     private void setMonthView() {
