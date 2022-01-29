@@ -1,6 +1,5 @@
 package com.example.calender;
 
-import com.Google.firebase.firestore.DocumentID;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -21,7 +20,6 @@ public class Event implements Comparable<Event> {
         return events;
     }
 
-    @DocumentID 
     private String id;
     private String name;
     private LocalDate date;
