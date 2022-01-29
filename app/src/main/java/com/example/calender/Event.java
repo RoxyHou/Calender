@@ -1,5 +1,7 @@
 package com.example.calender;
 
+import com.Google.firebase.firestore.DocumentID;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -18,14 +20,19 @@ public class Event implements Comparable<Event> {
 
         return events;
     }
+
+    @DocumentID 
+    private String id;
     private String name;
     private LocalDate date;
     private LocalTime time;
+    
 
-    public Event(String name, LocalDate date, LocalTime time) {
+    public Event(String name, LocalDate date, LocalTime time, String id) {
         this.name = name;
         this.date = date;
         this.time = time;
+        this.id = id;
     }
 
     public String getName() {
@@ -51,7 +58,13 @@ public class Event implements Comparable<Event> {
     public void setTime(LocalTime time) {
         this.time = time;
     }
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
     @Override
     public int compareTo(Event o) {
